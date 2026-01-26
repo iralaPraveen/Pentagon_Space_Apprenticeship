@@ -1,0 +1,225 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolarSystem</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        section{
+            /* background-image: url('https://imgs.search.brave.com/IfPYVjOeUhpyxnoPDcZ3xk7shpjAsoDGLUaQcIkrMLE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvOTE5/Mzk0MzgwL3Bob3Rv/L3N0YXJyeS1uaWdo/dC5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9a1Zmbk5UdmVm/aXl6RGQyQUFKTUpl/MGJvTEExMjZnM3BP/c1B1MEZFQUswYz0'); */
+background-repeat: no-repeat    ;
+            background-size: cover;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #sun{
+            background-size: contain;
+            background-repeat: no-repeat    ;
+            background-image: url('https://imgs.search.brave.com/mpO4rSvdC0nGYyeDZ9vVhE-lD90yq9RcIyRiooZWPzI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTc1/NTc2ODM2NS9waG90/by9yZWFsaXN0aWMt/eWVsbG93LXN1bi1v/ci1zdGFyLW9yLWZp/cmViYWxsLWlzb2xh/dGVkLW9uLXdoaXRl/LWJhY2tncm91bmQt/b3ItY3V0LW91dC0z/ZC1yZW5kZXJpbmcu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PTBid2VnZUs0cXIz/UFBuXzg2eUtHVjRS/QzJpS3RGV2ZHa012/RDdiZmlnT1E9');
+            height:150px;
+            width:150px;
+            border-radius:5px;
+        }
+        @keyframes rotate {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        #circle{
+            border-radius: 5px;
+            position: relative;
+            height: 300px;
+            width:300px;
+            border: 1px solid red;
+            animation: rotate 10s linear infinite;
+        }
+        #mercury{
+            box-shadow: 0px 0px 10px 2px yellow;
+            border: 2px solid red;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-color: whitesmoke;
+            position: relative;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <section>
+        <div id="circle">
+            <div id="mercury"></div>
+        </div>
+        <div id="sun"></div>
+    </section>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Solar System</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* 🌌 STAR BACKGROUND */
+body{
+    height:100vh;
+    background:black;
+    overflow:hidden;
+}
+body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(1px 1px at 10% 20%, white 50%, transparent 51%),
+        radial-gradient(1px 1px at 30% 80%, white 50%, transparent 51%),
+        radial-gradient(1px 1px at 70% 30%, white 50%, transparent 51%),
+        radial-gradient(1px 1px at 90% 60%, white 50%, transparent 51%),
+        radial-gradient(1px 1px at 50% 50%, white 50%, transparent 51%);
+    background-size:300px 300px;
+    opacity:0.8;
+}
+
+/* 🌞 CENTER */
+.solar-system{
+    position:relative;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* 🌞 SUN */
+.sun{
+    position:absolute;
+    height:130px;
+    width:130px;
+    border-radius:50%;
+    background:radial-gradient(circle, #fff176, #ff9800, #f44336);
+    box-shadow:0 0 60px 20px orange;
+}
+
+/* 🧭 ORBIT (ELLIPTICAL) */
+.orbit{
+    position:absolute;
+    border:1px dashed rgba(255,255,255,0.2);
+    border-radius:50%;
+    animation:rotate linear infinite;
+}
+
+/* ⏩ DIFFERENT SPEEDS */
+.venus-orbit{ width:260px; height:180px; animation-duration:8s; }
+.earth-orbit{ width:360px; height:260px; animation-duration:12s; }
+.mars-orbit{ width:480px; height:340px; animation-duration:18s; }
+
+/* 🌍 PLANETS */
+.planet{
+    position:absolute;
+    top:50%;
+    left:0;
+    transform:translateY(-50%);
+    border-radius:50%;
+}
+
+/* VENUS */
+.venus{
+    height:24px;
+    width:24px;
+    background:#d4af37;
+}
+
+/* EARTH */
+.earth{
+    height:30px;
+    width:30px;
+    background:#2196f3;
+    position:relative;
+}
+
+/* 🌑 MOON ORBIT */
+.moon-orbit{
+    position:absolute;
+    width:60px;
+    height:60px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    animation:rotate 2s linear infinite;
+}
+
+/* MOON */
+.moon{
+    position:absolute;
+    height:8px;
+    width:8px;
+    background:#ccc;
+    border-radius:50%;
+    top:50%;
+    left:0;
+    transform:translateY(50%);
+}
+
+/* MARS */
+.mars{
+    height:26px;
+    width:26px;
+    background:#c1440e;
+}
+
+/* 🔄 ROTATION */
+@keyframes rotate{
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
+}
+</style>
+</head>
+
+<body>
+<div class="solar-system">
+
+    <div class="sun"></div>
+
+    <!-- VENUS -->
+    <div class="orbit venus-orbit">
+        <div class="planet venus"></div>
+    </div>
+
+    <!-- EARTH + MOON -->
+    <div class="orbit earth-orbit">
+        <div class="planet earth">
+            <div class="moon-orbit">
+                <div class="moon"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MARS -->
+    <div class="orbit mars-orbit">
+        <div class="planet mars"></div>
+    </div>
+
+</div>
+</body>
+</html>
